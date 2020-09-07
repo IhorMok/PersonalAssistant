@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+    <head>
+        <title>MY PROJECT</title>
+    </head>
+    <body>
+        <div>
+            <a href="{% url 'tasks_new' %}" >Create tasks</a>
+
+            <h1><a href="/tasks">Main page</a></h1>
+        </div>
+
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

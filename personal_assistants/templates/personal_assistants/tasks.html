@@ -1,0 +1,17 @@
+{% extends 'personal_assistants/index.html' %}
+
+{% block content %}
+   {% for task in tasks %}
+      <div>
+         <p>published: {{ task.created_at }}</p>
+         <h1><a href="{% url 'tasks_detail' pk=task.pk %}">{{ task.title }} </a>{{ task.state }}</h1>
+         <p>{{ task.description }}</p>
+      </div>
+
+      
+      <form method="post">
+         {% csrf_token %}
+         <input type="submit" value="Submit" />
+      </form>
+   {% endfor %}
+{% endblock %}
