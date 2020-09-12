@@ -9,11 +9,12 @@
          <p>published: {{ task.created_at }}</p>   
       </div>
 
-      
-      <form method="post">
-         {% csrf_token %}
-         <input type="submit" value="Finish" />
-      </form>
+        <form action="{% url 'task_status_update' pk=task.pk %}" method="post" >
+            {% csrf_token %}
+            <input type="submit" value="Finish" />
+            <input type="hidden" value="done" name="state"/>
+        </form>
+
       <hr class="style13">
       <style>
          hr.style13 {
@@ -25,3 +26,4 @@
    </div>   
    {% endfor %}
 {% endblock %}
+

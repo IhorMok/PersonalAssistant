@@ -5,10 +5,9 @@
         <br><h1>{{ task.title }} {{ task.state }}</h1>
         <p>{{ task.description|linebreaksbr }}</p>
         <p>{{ task.created_at }}</p>
-
-        <form method="post">
-            {% csrf_token %}
-            <input type="submit" value="Finish" />
+        <form  action="tasks.html" method="post">{% csrf_token %}
+            <button>Finish</button>
         </form>
     </div>
 {% endblock %}
+
