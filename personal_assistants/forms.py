@@ -24,6 +24,3 @@ class TaskForm(forms.Form):
                           created_at=datetime.datetime.now(), updated_at=datetime.datetime.now())
         task_model.save()
         return task_model
-
-
-

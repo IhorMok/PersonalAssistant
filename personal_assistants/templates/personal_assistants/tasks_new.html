@@ -1,11 +1,28 @@
 {% extends 'personal_assistants/index.html' %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-    <h1>New task</h1>
+<div class="container">
+    <br><h1>New task</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         <table>
         {{ form.as_table}}
         </table>
-        <button type="submit" class="save btn btn-default">Save</button>
+        <input type="submit" class="btn btn-info" value="Save" />
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
 {% endblock %}

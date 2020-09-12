@@ -2,16 +2,26 @@
 
 {% block content %}
    {% for task in tasks %}
+   <div class="container">   
       <div>
-         <p>published: {{ task.created_at }}</p>
-         <h1><a href="{% url 'tasks_detail' pk=task.pk %}">{{ task.title }} </a>{{ task.state }}</h1>
+         <br><h1><a href="{% url 'tasks_detail' pk=task.pk %}">{{ task.title }} </a>{{ task.state }}</h1>
          <p>{{ task.description }}</p>
+         <p>published: {{ task.created_at }}</p>   
       </div>
 
       
       <form method="post">
          {% csrf_token %}
-         <input type="submit" value="Submit" />
+         <input type="submit" value="Finish" />
       </form>
+      <hr class="style13">
+      <style>
+         hr.style13 {
+            height: 10px;
+            border: 0;
+            box-shadow: 0 10px 10px -10px #8c8b8b inset;
+         }
+      </style>
+   </div>   
    {% endfor %}
 {% endblock %}
