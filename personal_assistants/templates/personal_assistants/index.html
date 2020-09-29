@@ -1,28 +1,30 @@
 {% load static %}
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>MY PROJECT</title>
+<head>
+  <title>MY PROJECT</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
+</head>
 
-        <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
 
-
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-          
-    </head>
-    
     <nav>
         <div class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
-          <a class="nav-item nav-link active"  data-toggle="tab" href="/tasks" role="tab" aria-selected="true">Main page</a>
-          <a class="nav-item nav-link"  data-toggle="tab" href="{% url 'tasks_new' %}" role="tab" aria-selected="true">Create tasks</a>
-          <a class="nav-item nav-link"  data-toggle="tab" href="#old_tasks" role="tab" aria-selected="true">Old tasks</a>
+        <a class="nav-item nav-link active"  data-toggle="tab" href="/tasks" role="tab" aria-selected="true">Main page</a>
+        <a class="nav-item nav-link active"  data-toggle="tab" href="{% url 'tasks_new' %}" role="tab" aria-selected="true">Create tasks</a>
+        <a class="nav-item nav-link"  data-toggle="tab" href="{% url 'tasks_old' %}" role="tab" aria-selected="true">Old tasks</a>
         </div>
     </nav>
 
-    <body>
-        {% block content %}
-        {% endblock %}
-    </body>
-</html>
 
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

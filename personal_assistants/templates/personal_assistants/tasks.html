@@ -2,28 +2,33 @@
 
 {% block content %}
    {% for task in tasks %}
-   <div class="container">   
-      <div>
-         <br><h1><a href="{% url 'tasks_detail' pk=task.pk %}">{{ task.title }} </a>{{ task.state }}</h1>
-         <p>{{ task.description }}</p>
-         <p>published: {{ task.created_at }}</p>   
-      </div>
+      
+         <div class="container">   
+            <div>
+               <br><h1><a href="{% url 'tasks_detail' pk=task.pk %}">{{ task.title }} </a>{{ task.state }}</h1>
+               <p id=''>{{ task.description }}</p>
+               {% if task.created_at == now  or task.state == 'todo' %}
+                  <b><p style="color: #FA0F0F">published: {{ task.created_at }}</p></b>
+               {% else %}
+                  <b><p>published1111: {{ task.created_at }}</p></b>
+               {% endif %}
+            </div>
 
-        <form action="{% url 'task_status_update' pk=task.pk %}" method="post" >
-            {% csrf_token %}
-            <input type="submit" value="Finish" />
-            <input type="hidden" value="done" name="state"/>
-        </form>
+            <form action="{% url 'task_status_update' pk=task.pk %}" method="post" >
+                  {% csrf_token %}
+                  <input type="submit" value="Finish" />
+                  <input type="hidden" value="done" name="state"/>
+            </form>
 
-      <hr class="style13">
-      <style>
-         hr.style13 {
-            height: 10px;
-            border: 0;
-            box-shadow: 0 10px 10px -10px #8c8b8b inset;
-         }
-      </style>
-   </div>   
+            <hr class="style13">
+            <style>
+               hr.style13 {
+                  height: 10px;
+                  border: 0;
+                  box-shadow: 0 10px 10px -10px #8c8b8b inset;
+               }
+            </style>
+         </div>   
    {% endfor %}
 {% endblock %}
 

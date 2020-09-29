@@ -9,7 +9,7 @@ from django.utils import timezone
 
 
 def tasks_list(request):
-    tasks = Task.objects.order_by('created_at') #filter(state)
+    tasks = Task.objects.filter(state='todo').order_by('created_at') 
     return render(request, 'personal_assistants/tasks.html', {'tasks': tasks})
 
 def tasks_detail(request, pk):
@@ -33,4 +33,7 @@ def task_status_update(request, pk):
         task_s_u.save()
         return redirect('personal_assistants/tasks.html', {'task_s_u': task_s_u})
 
- 
+def tasks_old(request):
+    tasks = Task.objects.filter(state='done').order_by('created_at') 
+    return render(request, 'personal_assistants/tasks.html', {'tasks': tasks})
+    
