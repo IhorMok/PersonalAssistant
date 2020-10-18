@@ -1,0 +1,23 @@
+{% extends 'personal_assistants/index.html' %}
+
+{% block content %}
+
+<p><h1><b><center>Available categories</center></b><h1></p>
+{% for cat in categs %}
+<div class="container">
+    <div>
+    
+        <br><h1><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.name }}</a></h1>
+        <hr class="style13">
+            <style>
+            hr.style13 {
+                height: 10px;
+                border: 0;
+                box-shadow: 0 10px 10px -10px #8c8b8b inset;
+            }
+            </style>
+    </div>    
+</div>
+{% endfor %}
+
+{% endblock %}

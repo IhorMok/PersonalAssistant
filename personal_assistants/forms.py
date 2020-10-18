@@ -1,6 +1,6 @@
 import datetime
 from django import forms
-from .models import Task
+from .models import Task, Category
 
 
 class DateInput(forms.DateInput):
@@ -19,3 +19,12 @@ class TaskForm(forms.Form):
         task_model.save()
         return task_model
         
+
+class CategoryForm(forms.Form):
+    name = forms.CharField()
+
+    def save(self):
+        data = self.cleaned_data
+        categories = Category(name=data['name'])
+        categories.save()
+        return categories

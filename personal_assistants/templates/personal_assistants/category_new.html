@@ -1,16 +1,17 @@
 {% extends 'personal_assistants/index.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+<p><h1><b><center>PAGE FORM FOR CATEGORY</center></b></h1></p>
+
 <div class="container">
-    <br><h1>New task</h1>
+    <br><h1>New category</h1><br>
     <form method="POST" class="post-form">{% csrf_token %}
         <table>
-        {{ form.as_table}}
+        {{ category_form.as_table}}
         </table>
+        <br>
         <input type="submit" class="btn btn-info" value="Save" />
     </form>
-    
 </div>
 
 {% endblock %}
-

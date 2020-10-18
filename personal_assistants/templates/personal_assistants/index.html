@@ -11,17 +11,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script> -->
 </head>
-
-
     <nav>
         <div class="nav nav-pills nav-fill" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active"  data-toggle="tab" href="/tasks" role="tab" aria-selected="true">Main page</a>
-        <a class="nav-item nav-link active"  data-toggle="tab" href="{% url 'tasks_new' %}" role="tab" aria-selected="true">Create tasks</a>
-        <a class="nav-item nav-link"  data-toggle="tab" href="{% url 'tasks_old' %}" role="tab" aria-selected="true">Old tasks</a>
+            <a class="nav-item nav-link active"  data-toggle="tab" href="/tasks" role="tab" aria-selected="true">Main page</a>
+            <a class="nav-item nav-link active"  data-toggle="tab" href="{% url 'tasks_new' %}" role="tab" aria-selected="true">Create tasks</a>
+            <a class="nav-item nav-link"  data-toggle="tab" href="{% url 'tasks_old' %}" role="tab" aria-selected="true">Old tasks</a>
+            <a class="nav-item nav-link"  data-toggle="tab" href="/category/" role="tab" aria-selected="true">Category</a>
+            <a class="nav-item nav-link"  data-toggle="tab" href="{% url 'category_new' %}" role="tab" aria-selected="true">Create category</a>
         </div>
     </nav>
-
-
 <body>
     {% block content %}
 

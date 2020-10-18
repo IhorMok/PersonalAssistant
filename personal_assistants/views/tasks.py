@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Task
-from .forms import TaskForm
+from personal_assistants.models import Task
+from personal_assistants.forms import TaskForm
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from django.utils import timezone
