@@ -5,6 +5,8 @@
         <br><h1>{{ task.title }} {{ task.state }}</h1>
         <p>{{ task.description|linebreaksbr }}</p>
         <p>{{ task.created_at }}</p>
+        <p>Category: <b>{{ task.category }}</b></p>
+
     </div>
 {% endblock %}
 

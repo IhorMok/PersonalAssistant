@@ -12,6 +12,8 @@
                {% else %}
                   <b><p>published1111: {{ task.created_at }}</p></b>
                {% endif %}
+               <p>Category: <b>{{ task.category }}</b></p>
+
             </div>
 
             <form action="{% url 'task_status_update' pk=task.pk %}" method="post" >

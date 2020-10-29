@@ -7,13 +7,15 @@ from django.utils.timezone import now
 from django.core.exceptions import ValidationError
 
 class Category(models.Model):
-    name = models.CharField(max_length=50, validators=[MinLengthValidator(1)])
+    name = models.CharField(max_length=50, unique=True, validators=[MinLengthValidator(1)])
+    
     class Meta:
         verbose_name = ("Category")
         verbose_name_plural = ("Categories")
         db_table = 'Category'
     def __str__(self):
         return self.name
+
 
 class Task(models.Model):
     title = models.CharField(max_length=200, validators=[MinLengthValidator(1)]) 
