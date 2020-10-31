@@ -11,7 +11,7 @@ class TaskForm(forms.Form):
     title = forms.CharField()
     description = forms.CharField(widget=forms.Textarea)
     due_to = forms.DateField(widget=DateInput)
-    category = forms.ModelChoiceField(queryset=Category.objects.all())
+    category = forms.ModelChoiceField(queryset=Category.objects.all(), required=False)
 
     def save(self):
         data = self.cleaned_data
@@ -28,8 +28,12 @@ class TaskForm(forms.Form):
         return task_model
       
 
-class CategoryForm(forms.Form):
-    name = forms.CharField()
+
+class CategoryForm(forms.ModelForm):
+
+    class Meta:
+        model = Category
+        fields = '__all__'
 
     def clean_name(self):
         name = self.cleaned_data['name'].capitalize()
@@ -38,8 +42,8 @@ class CategoryForm(forms.Form):
         return name
 
 
-    def save(self):
-        data = self.cleaned_data
-        categories = Category(name=data['name'])
-        categories.save()
-        return categories
+    # def save(self):
+    #     data = self.cleaned_data
+    #     categories = Category(name=data['name'])
+    #     categories.save()
+    #     return categories

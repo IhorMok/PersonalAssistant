@@ -29,6 +29,10 @@ def category_new(request):
 def category_edit(request, pk):
     category = Category.objects.get(pk=pk)
     form = CategoryForm(instance=category)
+    if request.method == "POST":
+        form = CategoryForm(request.POST, instance=category)
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
     context = {'form': form}
-
     return render(request, 'personal_assistants/category_edit.html', context)
