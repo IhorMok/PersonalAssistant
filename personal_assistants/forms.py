@@ -33,7 +33,7 @@ class CategoryForm(forms.Form):
 
     def clean_name(self):
         name = self.cleaned_data['name'].capitalize()
-        if Category.objects.exists():
+        if Category.objects.filter(name=name).exists():
             raise forms.ValidationError("This category already exists %(name)s", params={'name': name})
         return name
 

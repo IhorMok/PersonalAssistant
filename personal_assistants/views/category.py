@@ -24,10 +24,5 @@ def category_new(request):
         category_form = CategoryForm()
     return render(request, 'personal_assistants/category_new.html', {'category_form': category_form})
 
-def category_edit(request, pk):
-    category = Category.objects.get(pk=pk)
-    form = CategoryForm(instance=category)
-    context = {'form': form}
 
-    return render(request, 'personal_assistants/category_edit.html', context)
 
