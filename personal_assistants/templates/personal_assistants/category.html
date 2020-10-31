@@ -6,6 +6,7 @@
 {% for cat in categs %}
 <div class="container">
     <div>
+        <center><a href="{% url 'category_edit' pk=cat.pk %}">+Edit</a></center>
         <br><h1><a href="{% url 'category_detail' pk=cat.pk %}">{{ cat.name }}</a></h1> 
         <hr class="style13">
         

@@ -1,0 +1,10 @@
+{% extends 'personal_assistants/index.html' %}
+
+{% block content %}
+    <h1>Edit category:</h1>
+    <form>
+        {% csrf_token %}
+        {{ category_form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock %}
