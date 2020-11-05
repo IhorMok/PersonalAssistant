@@ -1,0 +1,11 @@
+{% extends 'personal_assistants/index.html' %}
+
+{% block content %}
+    <p><b><h2>A you sure you want to delete <font color='red'>"{{cat_del}}"</font>?</h2></b></p>
+    <a href="{% url 'category_list' %}">Cancel</a>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        <input type="submit" name='Confirm'>
+    </form>
+{% endblock %}

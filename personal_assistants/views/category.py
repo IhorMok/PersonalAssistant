@@ -36,3 +36,12 @@ def category_edit(request, pk):
             return redirect('category_list')
     context = {'form': form}
     return render(request, 'personal_assistants/category_edit.html', context)
+
+
+def category_delete(request, pk):
+    cat_del = Category.objects.get(pk=pk)
+    if request.method == "POST":
+        cat_del.delete()
+        return redirect('category_list')
+    context = {'cat_del': cat_del}
+    return render(request, 'personal_assistants/category_delete.html', context)
